@@ -1,0 +1,13 @@
+image: gitpod/workspace-dotnet:latest
+
+tasks:
+    - name: Setup
+      init: | 
+        dotnet dev-certs https
+        dotnet restore ./Library
+        dotnet build ./Library
+      command: |
+        cd Library.Tests && dotnet watch test
+vscode:
+  extensions:
+    - muhammad-sammy.csharp
